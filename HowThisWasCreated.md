@@ -8,3 +8,4 @@
 5. django-admin startproject vet
 6. python manage.py runserver
 7. python manage.py startapp main
+8. Edit settings.py to add "main" app to installed apps.

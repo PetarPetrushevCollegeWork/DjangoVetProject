@@ -7,3 +7,6 @@ def home(request):
                "tagline": "your freindly vet :3",
                "services": ["Check-ups", "X-rays", "Dentistry", "Vaccinations"]}
     return render(request, "home.html", context)
+
+def about(request):
+    return render(request, "about.html")

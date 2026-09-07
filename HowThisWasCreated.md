@@ -32,3 +32,9 @@ to main/views.py
 > {% for service in services %}
 >     <li>{{service}}</li>
 > {% endfor %}
+21. Add "path("about/", views.about, name="about")" to vet/urls.py
+22. Add:
+> def about(request):
+>     return render(request, "about.html")
+> to views.py
+23. Create about.html in the templates folder.

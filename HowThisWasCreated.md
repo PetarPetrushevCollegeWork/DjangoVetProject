@@ -30,5 +30,5 @@ to main/views.py
 > Use {{ clinic_name }} and {{ tagline }} inside.
 > Also use:
 > {% for service in services %}
-> <li>{{service}}</li>
+>     <li>{{service}}</li>
 > {% endfor %}

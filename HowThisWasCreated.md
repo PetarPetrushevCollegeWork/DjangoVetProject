@@ -5,3 +5,4 @@
 2. pip install Django~=5.2
 3. Create new folder called "VetWebsite"
 4. pip freeze > requirements.txt
+5. django-admin startproject vet

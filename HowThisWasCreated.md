@@ -16,11 +16,14 @@
 13. python manage.py migrate
 14. add "from django.http import HttpResponse" to main/views.py
 15. add 
-> "def home(request):
->     return render(request, "home.html")"
+> def home(request):
+>     context = {"clinic_name": "Happy Paws",
+>                "tagline": "your freindly vet :3"}
+>     return render(request, "home.html", context)
 to main/views.py
 16. add "path("", views.home, name="home")" to vet/urls.py
 17. add "from main import views" to vet/urls.py
 18. update settings.py TEMPLATES "...'DIRS': [BASE_DIR / "templates"]..."
 19. create folder called "templates" in /VetWebsite/vet/
 20. Create home.html in the new templates folder.
+> Use {{ clinic_name }} and {{ tagline }} inside.

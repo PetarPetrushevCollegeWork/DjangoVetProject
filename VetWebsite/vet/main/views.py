@@ -3,4 +3,6 @@ from django.http import HttpResponse
 
 # Create your views here.
 def home(request):
-    return render(request, "home.html")
+    context = {"clinic_name": "Happy Paws",
+               "tagline": "your freindly vet :3"}
+    return render(request, "home.html", context)

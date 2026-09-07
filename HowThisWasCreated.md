@@ -9,3 +9,5 @@
 6. python manage.py runserver
 7. python manage.py startapp main
 8. Edit settings.py to add "main" app to installed apps.
+9. Edit settings.py to change timezone to "Europe/London".
+10. Edit settings.py to change language to "en-gb".

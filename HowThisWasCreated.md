@@ -14,3 +14,10 @@
 11. python manage.py check
 12. python manage.py makemigrations
 13. python manage.py migrate
+14. add "from django.http import HttpResponse" to main/views.py
+15. add 
+> "def home(request):
+>     return HttpResponse("<h1>Happy meow :3</h1>")"
+to main/views.py
+16. add "path("", views.home, name="home")" to vet/urls.py
+17. add "from main import views" to vet/urls.py

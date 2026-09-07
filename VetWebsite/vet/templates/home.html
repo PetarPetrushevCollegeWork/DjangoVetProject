@@ -10,6 +10,15 @@
 <body>
     <h1>{{ clinic_name }} :3</h1>
     <i>{{ tagline }}</i>
+    <hr>
+    <h2>Services we offer:</h2>
+    <ul>
+        {% for service in services %}
+
+        <li>{{service}}</li>
+
+        {% endfor %}
+    </ul>
 </body>
 
 </html>

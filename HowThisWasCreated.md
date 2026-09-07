@@ -18,7 +18,8 @@
 15. add 
 > def home(request):
 >     context = {"clinic_name": "Happy Paws",
->                "tagline": "your freindly vet :3"}
+>                "tagline": "your freindly vet :3",
+>                "services": ["Check-ups", "X-rays", "Dentistry", "Vaccinations"]}
 >     return render(request, "home.html", context)
 to main/views.py
 16. add "path("", views.home, name="home")" to vet/urls.py
@@ -27,3 +28,7 @@ to main/views.py
 19. create folder called "templates" in /VetWebsite/vet/
 20. Create home.html in the new templates folder.
 > Use {{ clinic_name }} and {{ tagline }} inside.
+> Also use:
+> {% for service in services %}
+> <li>{{service}}</li>
+> {% endfor %}

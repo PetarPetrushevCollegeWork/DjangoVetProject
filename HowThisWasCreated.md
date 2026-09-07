@@ -12,3 +12,5 @@
 9. Edit settings.py to change timezone to "Europe/London".
 10. Edit settings.py to change language to "en-gb".
 11. python manage.py check
+12. python manage.py makemigrations
+13. python manage.py migrate

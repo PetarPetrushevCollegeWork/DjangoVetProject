@@ -1,13 +1,11 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 
-{% block title %}
-About
-{% endblock %}
-
+{% block title %}Home - Happy Paws {% endblock %}
 
 {% block content %}
-<h1>About us</h1>
-<hr>
-<i>Hi. This is the about page.</i>
-<a href="{% url 'home' %}">Back to home.</a>
+    <h1>Happy Paws</h1>
+    <h2>About us</h2>
+    <p>We are a local vet in Worksop</p>
+
+    <p><a href="{% url 'home' %}">Back to home</a></p>
 {% endblock %}

@@ -1,0 +1,7 @@
+{% extends "base.html" %} {% block title %}Your Dashboard - Happy Paws{% endblock %} {% block content %}
+<h1>Hello, {{user.username}}</h1>
+<p>You have {{ booking_count }} booking(s) with us.</p>
+<ul>
+    <li><a href='#'>Book an appointment</a></li>
+</ul>
+{% endblock %}

@@ -1,11 +1,26 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
-{% block title %}Home - Happy Paws {% endblock %}
+{% block title %}
+About
+{% endblock %}
+
 
 {% block content %}
-    <h1>Happy Paws</h1>
-    <h2>About us</h2>
-    <p>We are a local vet in Worksop</p>
+<section class="page-hero">
+	<span class="eyebrow">About the project</span>
+	<h1>{{ clinic_name }}</h1>
+	<p class="lead-text">This version focuses on real clinic operations: staff workflows, CRM data, and a calmer visual language that feels intentional instead of placeholder-heavy.</p>
+</section>
 
-    <p><a href="{% url 'home' %}">Back to home</a></p>
+<section class="info-grid">
+	{% for highlight in highlights %}
+	<article class="info-card">
+		<p>{{ highlight }}</p>
+	</article>
+	{% endfor %}
+</section>
+
+<div class="back-link-wrap">
+	<a class="btn btn-pill btn-outline" href="{% url 'home' %}">Back to home</a>
+</div>
 {% endblock %}

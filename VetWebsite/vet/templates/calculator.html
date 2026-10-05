@@ -1,30 +1,42 @@
-{% extends "base.html" %}
-{% load static %}
-{% block title %}Pet-Food Calculator - Happy Paws{% endblock %}
+{% extends "base.html" %} {% load static %} {% block title %}Pet-Food Calculator
+- Happy Paws{% endblock %} {% block content %}
+<h1>How much should my pet eat?</h1>
+<p>Weight and age in, daily food amount out!</p>
 
-{% block content %}
-    <h1>How much should my pet eat?</h1>
-    <p>Weight and age in, daily food amount out!</p>
+<form id="calc-form">
+  <label for="weight">Weight (kg)</label>
+  <input
+    name="weight"
+    type="number"
+    id="weight"
+    step="0.1"
+    min="0.1"
+    placeholder="e.g. 5.4"
+    max="200"
+  />
 
-   <form id="calc-form" >
-    <label for="weight">Weight (kg)</label>
-    <input name="weight" type="number" id="weight" step="0.1" min="0.1" placeholder="e.g. 5.4">
+  <label for="age">Age (years)</label>
+  <input
+    name="age"
+    type="number"
+    id="age"
+    step="0.5"
+    min="0"
+    placeholder="e.g. 3"
+    max="30"
+  />
 
-    <label for="age">Age (years)</label>
-    <input name="age" type="number" id="age" step="0.5" min="0" placeholder="e.g. 3">
+  <label for="activity">Activity level</label>
+  <select name="activity" id="activity">
+    <option value="low">Low — snoozing champion</option>
+    <option value="normal" selected>Normal — daily walks</option>
+    <option value="high">High — zoomies professional</option>
+  </select>
 
-    <label for="activity">Activity level</label>
-    <select  name="activity" id="activity">
-      <option value="low">Low — snoozing champion</option>
-      <option value="normal" selected>Normal — daily walks</option>
-      <option value="high">High — zoomies professional</option>
-    </select>
+  <button class="btn btn-primary" type="submit">Calculate</button>
+</form>
 
-    <button class="btn btn-primary" type="submit">Calculate</button>
-  </form>
+<div id="result"></div>
 
-  <div id="result"></div>
-
-  <script src="{% static 'js/calculator.js' %}"></script>
+<script src="{% static 'js/calculator.js' %}"></script>
 {% endblock %}
-

@@ -32,6 +32,10 @@ function calculatePetFood(document) {
     activityInput.value,
   );
   const resultText =
-    "Your pet needs <b>" + result.grams + "g</b> of food per day.";
+    "Your pet needs <b>" +
+    result.grams +
+    "g</b> of food <i>(" +
+    result.kcal +
+    "kcal)</i> per day.";
   resultDiv.innerHTML = resultText;
 }

@@ -1,30 +1,23 @@
-{% extends 'base.html' %}
-
-{% block title %}Login | Happy Paws Vet{% endblock %}
+{% extends "base.html" %}
+{% block title %}Log in - Happy Paws{% endblock %}
 
 {% block content %}
-<section class="auth-shell">
-    <div class="auth-card">
-        <span class="eyebrow">Staff login</span>
-        <h1>Welcome back</h1>
-        <p class="lead-text">Sign in to access the dashboard and CRM tools.</p>
+    <h1>Log in</h1>
+    {% if form.non_field_errors %}
+        <div class="alert alert-danger">
+            {{ form.non_field_errors}}
+        </div>
+    {% endif %}
 
-        {% if form.errors %}
-        <div class="empty-state">Your username and password did not match. Try again.</div>
-        {% endif %}
+    <form method="post">
+        {% csrf_token %}
 
-        <form method="post" class="auth-form">
-            {% csrf_token %}
-            <div>
-                <label for="id_username">Username</label>
-                {{ form.username }}
-            </div>
-            <div>
-                <label for="id_password">Password</label>
-                {{ form.password }}
-            </div>
-            <button class="btn btn-pill btn-primary w-100" type="submit">Sign in</button>
-        </form>
-    </div>
-</section>
+        {{ form.as_p }}
+
+        <button class="btn btn-primary" type="submit">Log in</button>
+
+    </form>
+    <br>
+    <p>No Account Yet? <a href="{% url 'register' %}">Register</a></p>
+    
 {% endblock %}

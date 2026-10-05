@@ -1,91 +1,14 @@
-{% extends 'base.html' %}
-
-{% block title %}Dashboard | Happy Paws Vet{% endblock %}
+{% extends "base.html" %}
+{% block title %}Your Dashboard - Happy Paws{% endblock %}
 
 {% block content %}
-<section class="page-hero dashboard-hero">
-    <span class="eyebrow">Staff portal</span>
-    <h1>CRM dashboard</h1>
-    <p class="lead-text">Track clients, pets, leads, and appointments from one authenticated workspace.</p>
-</section>
+    <h1>Hello, {{ user.username }}</h1>
 
-<section class="metric-row">
-    <article class="metric-card"><span>Clients</span><strong>{{ stats.clients }}</strong></article>
-    <article class="metric-card"><span>Pets</span><strong>{{ stats.pets }}</strong></article>
-    <article class="metric-card"><span>Appointments</span><strong>{{ stats.appointments }}</strong></article>
-    <article class="metric-card"><span>Leads</span><strong>{{ stats.leads }}</strong></article>
-</section>
+    <p>You have {{ booking_count }} booking(s) with us.</p>
 
-<section class="split-grid">
-    <article class="panel-card">
-        <div class="panel-header">
-            <h2>Upcoming appointments</h2>
-            <span>Next five</span>
-        </div>
-        <div class="stack-list">
-            {% for appointment in upcoming_appointments %}
-            <div class="stack-item">
-                <div>
-                    <strong>{{ appointment.client.name }}</strong>
-                    <p>{{ appointment.service|default:"General check-up" }}</p>
-                </div>
-                <span>{{ appointment.scheduled_for|date:"d M, H:i" }}</span>
-            </div>
-            {% empty %}
-            <div class="empty-state">No appointments yet. Add one in the admin to start the workflow.</div>
-            {% endfor %}
-        </div>
-    </article>
-
-    <article class="panel-card">
-        <div class="panel-header">
-            <h2>Recent leads</h2>
-            <span>Pipeline</span>
-        </div>
-        <div class="stack-list">
-            {% for lead in recent_leads %}
-            <div class="stack-item">
-                <div>
-                    <strong>{{ lead.name }}</strong>
-                    <p>{{ lead.get_status_display }}</p>
-                </div>
-                <span>{{ lead.get_source_display }}</span>
-            </div>
-            {% empty %}
-            <div class="empty-state">No leads yet.</div>
-            {% endfor %}
-        </div>
-    </article>
-</section>
-
-<section class="panel-card">
-    <div class="panel-header">
-        <h2>Recent clients</h2>
-        <span>Client CRM</span>
-    </div>
-    <div class="table-wrap">
-        <table class="table table-borderless align-middle mb-0">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Pets</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for client in recent_clients %}
-                <tr>
-                    <td>{{ client.name }}</td>
-                    <td>{{ client.email|default:"-" }}</td>
-                    <td>{{ client.pet_count|default:client.pet_count }}</td>
-                    <td>{{ client.status|default:"Active" }}</td>
-                </tr>
-                {% empty %}
-                <tr><td colspan="4">No clients yet.</td></tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
-</section>
+    <ul>
+        <li><a href="#">Book an appointment</a></li>
+        <li><a href="#">Your appointments</a></li>
+        <li><a href="{% url 'calculator' %}">Pet food calculator</a></li>
+    </ul>
 {% endblock %}

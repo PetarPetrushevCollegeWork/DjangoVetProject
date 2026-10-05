@@ -1,63 +1,16 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 
-{% block title %}Home | Happy Paws Vet
-{% endblock %}
-
+{% block title %}Home - Happy Paws {% endblock %}
 
 {% block content %}
-<section class="hero-panel">
-    <div class="hero-copy">
-        <span class="eyebrow">Veterinary care + CRM</span>
-        <h1>{{ clinic_name }}</h1>
-        <p class="lead-text">{{ tagline }}</p>
-        <div class="hero-actions">
-            <a class="btn btn-pill btn-primary" href="{% url 'dashboard' %}">Open dashboard</a>
-            <a class="btn btn-pill btn-outline" href="{% url 'about' %}">See the clinic story</a>
-        </div>
-    </div>
-    <div class="hero-card">
-        <div class="mini-metric">
-            <span>Today</span>
-            <strong>{{ stats.appointments }}</strong>
-            <small>appointments tracked</small>
-        </div>
-        <div class="mini-grid">
-            <div><strong>{{ stats.clients }}</strong><span>clients</span></div>
-            <div><strong>{{ stats.pets }}</strong><span>pets</span></div>
-            <div><strong>{{ stats.leads }}</strong><span>new leads</span></div>
-        </div>
-    </div>
-</section>
-
-<section class="section-block">
-    <div class="section-heading">
-        <span class="eyebrow">Featured services</span>
-        <h2>Built for routine care and busy front-desk workflows.</h2>
-    </div>
-    <div class="service-grid">
+    <h1>Welcome to {{ clinic_name }}</h1>
+    <p>{{ tagline }}</p>
+    <h2>Services we offer:</h2>
+    <ul>
         {% for service in services %}
-        <article class="service-card reveal-item">
-            <span class="service-tag">{{ service.duration_minutes }} min</span>
-            <h3>{{ service.name }}</h3>
-            <p>{{ service.description }}</p>
-            <div class="service-footer">
-                <strong>From £{{ service.price }}</strong>
-                <span>bookable service</span>
-            </div>
-        </article>
+            <li>{{ service }}</li>
         {% endfor %}
-    </div>
-</section>
+    </ul>
 
-<section class="section-block compact-strip">
-    <div>
-        <span class="eyebrow">Why it works</span>
-        <h2>One clinic site, one internal hub, one place for the team to work.</h2>
-    </div>
-    <div class="strip-points">
-        <div>Client profiles with pets, appointments, and notes.</div>
-        <div>Staff login, dashboard, and CRM-ready data models.</div>
-        <div>Responsive motion-led UI that feels more premium than a starter template.</div>
-    </div>
-</section>
+    <p><a href="{% url 'about' %}">About us</a></p>
 {% endblock %}

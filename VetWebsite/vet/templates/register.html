@@ -1,9 +1,18 @@
-{% extends 'base.html' %} {% block title %}Register - Happy paws{% endblock %}
+{% extends "base.html" %}
+{% block title %}Register - Happy Paws{% endblock %}
+
 {% block content %}
-<h1>Create an account</h1>
-<form method="post">
-  {% csrf_token %} {{ form.as_p }}
-  <button class="btn btn-primary" type="submit">Register</button>
-</form>
-<p>Already have an account? <a href="{% url 'login' %}">Login here</a>.</p>
+    <h1>Create an Account</h1>
+
+    <form method="post"> 
+        {% csrf_token %}
+        {{ form.as_p}}
+        <button class="btn btn-primary" type="submit">Register</button>
+    </form>
+
+    <br>
+    <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
+
 {% endblock %}
+
+
